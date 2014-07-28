@@ -17,12 +17,23 @@ const (
 	delay   = 0
 )
 
+func detectHost() {
+	board = os.Getenv("EMBD_HOST")
+	if board == "RPi" || board == "RPi2" {
+		embd.SetHost(embd.HostRPi, 2)
+	} else if board == "BBB" {
+		embd.SetHost(embd.HostBBB, 0)
+	}
+}
+
 func main() {
 	flag.Parse()
 	in := os.Stdin
 
 	buf := make([]byte, 32768)
 	in.Read(buf)
+
+	detectHost()
 
 	if err := embd.InitSPI(); err != nil {
 		panic(err)
