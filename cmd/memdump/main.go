@@ -18,7 +18,7 @@ const (
 )
 
 func detectHost() {
-	board = os.Getenv("EMBD_HOST")
+	board := os.Getenv("EMBD_HOST")
 	if board == "RPi" || board == "RPi2" {
 		embd.SetHost(embd.HostRPi, 2)
 	} else if board == "BBB" {
