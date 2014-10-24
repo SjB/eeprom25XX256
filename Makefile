@@ -1,9 +1,9 @@
 all: memdump memload
 
-memdump: cmd/memdump/memdump.go
+memdump: cmd/memdump/main.go
 	go build -o $@ $< 
 
-memload: cmd/memload/memload.go
+memload: cmd/memload/main.go
 	go build -o $@ $<
 
 clean:
