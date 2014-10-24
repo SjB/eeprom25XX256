@@ -1,4 +1,4 @@
 #!/bin/sh
 
-GOARCH=arm go build $2
-scp memdump root@$1:. 
+GOARCH=arm make all
+scp memload memdump root@$1:. 
